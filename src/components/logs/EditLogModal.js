@@ -18,7 +18,7 @@ const EditLogModal = ({ current, updateLog }) => {
     }, [current]);
 
     const onSubmit = () => {
-        if (message === "" && tech === "") {
+        if (message === "" || tech === "") {
             M.toast({ html: "Please enter a message and tech" });
         } else {
             const updLog = {
@@ -43,16 +43,13 @@ const EditLogModal = ({ current, updateLog }) => {
             <div className="modal-content">
                 <h4>Enter System Log</h4>
                 <div className="row">
-                    <div className="inner-field">
+                    <div className="input-field">
                         <input
                             type="text"
                             name="message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
-                        <label htmlFor="message" className="active">
-                            Log Message
-                        </label>
                     </div>
                 </div>
                 <div className="row">
@@ -66,9 +63,6 @@ const EditLogModal = ({ current, updateLog }) => {
                             <option value="" disabled>
                                 Select Technician
                             </option>
-                            <option value="John Doe">John Doe</option>
-                            <option value="Sam Smith">Sam Smith</option>
-                            <option value="Sara Wilson">Sara Wilson</option>
                         </select>
                     </div>
                 </div>

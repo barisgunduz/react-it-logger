@@ -5,6 +5,7 @@ import {
     ADD_LOG,
     DELETE_LOG,
     SET_CURRENT,
+    SEARCH_LOGS,
     CLEAR_CURRENT,
     UPDATE_LOG,
 } from "../actions/types";
@@ -44,6 +45,11 @@ export default (state = initialState, action) => {
                     log.id === action.payload.id ? action.payload : log
                 ),
             };
+        case SEARCH_LOGS:
+            return {
+                ...state,
+                logs: action.payload
+            }
         case SET_CURRENT:
             return {
                 ...state,
